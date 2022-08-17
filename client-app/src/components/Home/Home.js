@@ -32,6 +32,7 @@ function Home() {
         checked.includes(item) ? "checked-item" : "not-checked-item";
 
     return (
+        <WordLayout>
         <div className="home">
             <div class="notification-list">
                 <div class="ntfc-box ntfc-siemens">
@@ -96,6 +97,7 @@ function Home() {
                 </div>
             </div>
         </div>
+        </WordLayout>
     );
 }
 
