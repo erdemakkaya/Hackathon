@@ -3,13 +3,6 @@ import { Layout } from "antd";
 import WordSider from "../Sider";
 import WordHeader from "../Header";
 
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes
-
-} from 'react-router-dom';
-
 const { Content, Footer } = Layout;
 
 function WordLayout(props) {

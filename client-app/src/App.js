@@ -3,7 +3,7 @@ import './App.css';
 import {
   BrowserRouter as Router,
   Route,
-  Routes, useNavigate
+  Routes
 } from "react-router-dom";
 import WordLayout from './components/Layout';
 import Login from './components/Login/Login';
@@ -26,6 +26,7 @@ function App() {
           <Route path="/podium" element={<Podium />} />
           <Route path="/profilePage/:id" element={<Profile />} />
           <Route path="/meetings" element = {<Meetings />} />
+          <Route path="/logout" element={<Login />} />
         </Routes>
       </Router>
     </React.StrictMode>

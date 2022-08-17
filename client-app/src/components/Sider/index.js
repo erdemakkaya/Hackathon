@@ -7,7 +7,7 @@ import {
   SearchOutlined,
   CalendarOutlined,
   LogoutOutlined,
-  SortAscendingOutlined
+  StarOutlined
 } from '@ant-design/icons';
 import {
   Link,
@@ -39,7 +39,7 @@ function WordSider({ collapsed }) {
               Meetings
             </Link>
           </Menu.Item>
-          <Menu.Item key="/podium" icon={<SortAscendingOutlined />}>
+          <Menu.Item key="/podium" icon={<StarOutlined />}>
             <Link to="/podium">
               Podium
             </Link>
@@ -59,6 +59,7 @@ function WordSider({ collapsed }) {
           <Menu.Item key="14"></Menu.Item>
           <Menu.Item key="15"></Menu.Item>
           <Menu.Item key="16"></Menu.Item>
+          <Menu.Item key="17"></Menu.Item>
           <Menu.Item key="/logout" icon={<LogoutOutlined />}>
             <Link to="/logout">
               Logout
