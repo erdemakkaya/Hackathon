@@ -4,6 +4,7 @@ import {
     Row, Col, Typography, Input, Form, Button, Checkbox,
     Radio, Switch, Slider, Select, message
 } from 'antd';
+import WordLayout from '../Layout/';
 
 import "./styles.css";
 
@@ -35,6 +36,7 @@ function Home() {
         checked.includes(item) ? "checked-item" : "not-checked-item";
 
     return (
+        <WordLayout>
         <div className="home">
             <div class="notification-list">
                 <div class="ntfc-box ntfc-siemens">
@@ -101,6 +103,7 @@ function Home() {
                 </div>
             </div>
         </div>
+        </WordLayout>
     );
 }
 

@@ -3,11 +3,6 @@ import React, { useState } from "react";
 import { Layout } from "antd";
 import WordSider from "../Sider";
 import WordHeader from "../Header";
-import Home from "../Home/Home";
-import List from "../List/List";
-import WordCardFetch from "../WordCard/WordCardFetch";
-import GrammerCreate from "../../features/Grammer/GrammerCreate";
-import GrammerList from "../../features/Grammer/GrammerList";
 
 import {
   BrowserRouter as Router,
@@ -45,15 +40,7 @@ function WordLayout() {
               minHeight: 280,
             }}
           >
-           <Routes>
-           <Route  path="/home" element = {<Home />} />
-           <Route  path="/list" element = {<List />} />
-           <Route  path="/test" element = {<WordCardFetch />} />
-           <Route  path="/creategrammer/:id" element = {<GrammerCreate />} />
-           <Route  path="/listgrammer" element = {<GrammerList />} />
-                         
-
-                      </Routes>  
+       
 
           </Content>
           <Footer style={{ textAlign: "center" }}>
