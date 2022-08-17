@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Layout } from "antd";
 import WordSider from "../Sider";
 import WordHeader from "../Header";
-import Create from "../Create/Create";
+import Home from "../Home/Home";
 import List from "../List/List";
 import WordCardFetch from "../WordCard/WordCardFetch";
 import GrammerCreate from "../../features/Grammer/GrammerCreate";
@@ -46,7 +46,7 @@ function WordLayout() {
             }}
           >
            <Routes>
-           <Route  path="/create" element = {<Create />} />
+           <Route  path="/home" element = {<Home />} />
            <Route  path="/list" element = {<List />} />
            <Route  path="/test" element = {<WordCardFetch />} />
            <Route  path="/creategrammer/:id" element = {<GrammerCreate />} />
