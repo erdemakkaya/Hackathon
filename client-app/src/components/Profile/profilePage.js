@@ -6,6 +6,7 @@ import {Row, Col, Typography, Input, Form, Button,Checkbox,
   import WordService from '../../services/wordService' */
 import logo from "../../images/defaultIcon.PNG"
 import MyJson from "../../db/db.json";
+import WordLayout from '../Layout';
 
 var defaultUser = {
     uid: "0",
@@ -58,6 +59,7 @@ const Profile = ()  => {
     };
 
     return (
+        <WordLayout>
         <div>
             <Row gutter={[40, 0]}>
                 <Col span={23}>
@@ -82,8 +84,8 @@ const Profile = ()  => {
                     <p>How close are you to 50 stars? {currentUser.helpingPoints}/50</p>
                 </Col>
             </Row>
-        
         </div>
+        </WordLayout>
     ); 
 };
 

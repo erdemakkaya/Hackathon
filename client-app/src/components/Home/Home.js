@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import WordLayout from "../Layout"
 // import { useNavigate } from "react-router-dom";
 // import {
 //     Row, Col, Typography, Input, Form, Button, Checkbox,

@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import WordLayout from '../Layout';
 import "./styles.css";
 
 function Podium() {
     return (
+        <WordLayout>
         <div class="container podium">
             <div class="podium__item">
                 <p class="podium__city">Annecy</p>
@@ -23,6 +25,7 @@ function Podium() {
                 <div class="podium__rank third">3</div>
             </div>
         </div>
+        </WordLayout>
     );
 }
 
