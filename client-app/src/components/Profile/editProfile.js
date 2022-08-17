@@ -1,13 +1,10 @@
 import React, { useState } from 'react';
 import { useNavigate, useParams } from "react-router-dom";
 import {Row, Col, Typography, Input, Form, Button,Checkbox, 
-  Radio, Switch, Slider, Select, message, Tag} from 'antd';
-/*   import WordNotification from '../Notification/WordNotification';
-  import WordService from '../../services/wordService' */
-import defaultIcon from "../../images/defaultIcon.PNG"
+  Radio, Switch, Slider, Select, message, Tag, Divider, Avatar} from 'antd';
+import { UserOutlined } from '@ant-design/icons';
 import MyJson from "../../db/db.json";
 import WordLayout from '../Layout';
-
 
 const defaultUser = {
     uid: "0",
@@ -53,6 +50,7 @@ const Profile = ()  => {
     var currentUser = defaultUser;
     const users = MyJson.members;
     const numUsers = users.length;
+    const colors = ["magenta", "red", "volcano", "orange", "gold", "lime", "green", "cyan", "blue", "geekblue", "purple"];
 
     for (var i = 0; i < numUsers; ++i) {
         var user = users[i];
@@ -60,22 +58,12 @@ const Profile = ()  => {
             currentUser = user;
     };
 
-    
-    function editProfile() {
-        var uid = MyJson.loggedInUser;
-        var loggedInUserIndex = 0;
-        var loggedInUserId = 100;
-        
-        for (var i = 0; i < numUsers; ++i) {
-            var currentUid = users[i].uid;
-            if (currentUid == uid) {
-                loggedInUserIndex = i;
-                loggedInUserId = users[i].uid;
-            }
-        };
-        
-        
-    }
+    const power_colors = {}
+    for (var i = 0; i < currentUser.powers.length; ++i)
+        power_colors[currentUser.powers[i]] = colors[Math.trunc(Math.random() * 12)];
+    const hobby_colors = {}
+    for (var i = 0; i < currentUser.hobbies.length; ++i)
+        hobby_colors[currentUser.hobbies[i]] = colors[Math.trunc(Math.random() * 12)];
 
     const onCheck = (e) => {
         console.log(`checked = ${e.target.checked}`);
@@ -94,7 +82,7 @@ const Profile = ()  => {
                 </Col>
             </Row>
             <Row>
-                <img src={defaultIcon} width="100" height="100"></img>
+                <Avatar size={100} icon={<UserOutlined />} />
                 <Col>
                     <p>{currentUser.name}</p>
                     <p>{currentUser.team}</p>
@@ -106,8 +94,24 @@ const Profile = ()  => {
                     <p className='attribute'>Bio: {currentUser.bio}</p>
                     <p>Email: {currentUser.email}</p>
                     <p>Phone: {currentUser.phone}</p>
-                    <p>Fields of expertise: {currentUser.powers}</p>
-                    <p>Hobbies: {currentUser.hobbies}</p>
+                    <p>Fields of expertise:
+                        <Row>
+                        {
+                            Object.keys(power_colors).map((key, index) => ( 
+                                <Tag key={index} color={power_colors[key]}> {key}</Tag>
+                            ))
+                        }
+                        </Row>
+                    </p>
+                    <p>Hobbies:
+                        <Row>
+                        {
+                            Object.keys(hobby_colors).map((key, index) => ( 
+                                <Tag key={index} color={hobby_colors[key]}> {key}</Tag>
+                            ))
+                        }
+                        </Row>
+                    </p>
                     <p>Linkedin: <a href={currentUser.linkedin}>Click Here</a></p>
                     <p>{currentUser.ready_to_help ? <text>is</text>: <text>isn't</text>}  Able to help others</p>
                     {/* <p>{false ? <text>is</text>: <text>isn't</text>} Able to help others</p> */}

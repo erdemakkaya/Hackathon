@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
 import { useNavigate, useParams } from "react-router-dom";
 import {Row, Col, Typography, Input, Form, Button,Checkbox, 
-  Radio, Switch, Slider, Select, message} from 'antd';
-/*   import WordNotification from '../Notification/WordNotification';
-  import WordService from '../../services/wordService' */
-import defaultIcon from "../../images/defaultIcon.PNG"
+  Radio, Switch, Slider, Select, message, Tag, Avatar} from 'antd';
+import { UserOutlined } from '@ant-design/icons';
 import MyJson from "../../db/db.json";
 import WordLayout from '../Layout';
-
+import EditProfile from './editProfile';
 
 const defaultUser = {
     uid: "0",
@@ -41,7 +39,7 @@ const formItemLayout = {
 
 const { Option } = Select;
 const {Title} = Typography;
-
+const colors = ["magenta", "red", "volcano", "orange", "gold", "lime", "green", "cyan", "blue", "geekblue", "purple"];
 
 const Profile = ()  => {
     const onFinish = () => {};
@@ -60,7 +58,13 @@ const Profile = ()  => {
             currentUser = user;
     };
 
-    
+    const power_colors = {}
+    for (var i = 0; i < currentUser.powers.length; ++i)
+        power_colors[currentUser.powers[i]] = colors[Math.trunc(Math.random() * 12)];
+    const hobby_colors = {}
+    for (var i = 0; i < currentUser.hobbies.length; ++i)
+        hobby_colors[currentUser.hobbies[i]] = colors[Math.trunc(Math.random() * 12)];
+
     function editProfile() {
         var uid = MyJson.loggedInUser;
         var loggedInUserIndex = 0;
@@ -74,7 +78,7 @@ const Profile = ()  => {
             }
         };
         
-        
+        return EditProfile;
     }
 
     return (
@@ -86,7 +90,7 @@ const Profile = ()  => {
                 </Col>
             </Row>
             <Row>
-                <img src={defaultIcon} width="100" height="100"></img>
+                <Avatar size={100} icon={<UserOutlined />} />
                 <Col>
                     <p>{currentUser.name}</p>
                     <p>{currentUser.team}</p>
@@ -98,8 +102,24 @@ const Profile = ()  => {
                     <p className='attribute'>Bio: {currentUser.bio}</p>
                     <p>Email: {currentUser.email}</p>
                     <p>Phone: {currentUser.phone}</p>
-                    <p>Fields of expertise: {currentUser.powers}</p>
-                    <p>Hobbies: {currentUser.hobbies}</p>
+                    <p>Fields of expertise:
+                        <Row>
+                        {
+                            Object.keys(power_colors).map((key, index) => ( 
+                                <Tag key={index} color={power_colors[key]}> {key}</Tag>
+                            ))
+                        }
+                        </Row>
+                    </p>
+                    <p>Hobbies:
+                        <Row>
+                        {
+                            Object.keys(hobby_colors).map((key, index) => ( 
+                                <Tag key={index} color={hobby_colors[key]}> {key}</Tag>
+                            ))
+                        }
+                        </Row>
+                    </p>
                     <p>Linkedin: <a href={currentUser.linkedin}>Click Here</a></p>
                     <Row>
                         <p>{currentUser.ready_to_help ? <text>is</text>: <text>isn't</text>}  Able to help others</p>
