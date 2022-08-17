@@ -22,6 +22,7 @@
     ],
     "members": [
         {
+            "uid": "100",
             "name": "Emre Kenar",
             "email": "emre.kenar@siemens.com",
             "project": "ADV D EU RT C&E PRC 1",
@@ -40,9 +41,12 @@
                 "guitar",
                 "basketball"
             ],
-            "ranking": 0
+            "ranking": 0,
+            "onboarding": 0,
+            "helpingPoints": 0
         },
         {
+            "uid": "101",
             "name": "Aysenur Uslu",
             "email": "aysenur.uslu@siemens.com",
             "project": "ADV D EU RT C&E PRC 1",
@@ -61,7 +65,9 @@
                 "chess",
                 "cooking"
             ],
-            "ranking": 0
+            "ranking": 0,
+            "onboarding": 0,
+            "helpingPoints": 0
         }
     ]
 }

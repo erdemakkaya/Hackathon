@@ -49,7 +49,11 @@ function WordSider({collapsed}) {
             List  Grammer
           </Link>
             </Menu.Item>
-            
+            <Menu.Item key="6" icon={<UserOutlined />}>
+            <Link to="/profilePage/0">
+            Profile
+          </Link>
+            </Menu.Item>
           </Menu>
       </Sider>
 </React.StrictMode>

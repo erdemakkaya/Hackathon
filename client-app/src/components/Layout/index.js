@@ -6,6 +6,7 @@ import WordHeader from "../Header";
 import Home from "../Home/Home";
 import List from "../List/List";
 import WordCardFetch from "../WordCard/WordCardFetch";
+import Profile from "../Profile/profilePage"
 import GrammerCreate from "../../features/Grammer/GrammerCreate";
 import GrammerList from "../../features/Grammer/GrammerList";
 
@@ -51,7 +52,7 @@ function WordLayout() {
            <Route  path="/test" element = {<WordCardFetch />} />
            <Route  path="/creategrammer/:id" element = {<GrammerCreate />} />
            <Route  path="/listgrammer" element = {<GrammerList />} />
-                         
+           <Route  path="/profilePage/:id" element = {<Profile />} />
 
                       </Routes>  
 
