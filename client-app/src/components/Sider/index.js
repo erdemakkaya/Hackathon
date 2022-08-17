@@ -49,7 +49,10 @@ function WordSider({ collapsed }) {
               Podium
             </Link>
           </Menu.Item>
-          <Menu.Item key="6"></Menu.Item>
+          <Menu.Item key="6" icon={<UserOutlined />}>
+            <Link to="/profilePage/0">
+            Profile
+          </Link>
           <Menu.Item key="7"></Menu.Item>
           <Menu.Item key="8"></Menu.Item>
           <Menu.Item key="9"></Menu.Item>
@@ -68,7 +71,6 @@ function WordSider({ collapsed }) {
         </Menu>
       </Sider>
     </React.StrictMode>
-
   );
 }
 

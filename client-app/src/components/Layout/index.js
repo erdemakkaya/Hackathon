@@ -5,6 +5,7 @@ import WordSider from "../Sider";
 import WordHeader from "../Header";
 import Home from "../Home/Home";
 import Podium from "../Podium/Podium";
+import Profile from "../Profile/profilePage"
 
 import {
   BrowserRouter as Router,
@@ -32,8 +33,6 @@ function WordLayout() {
           <Layout className="site-layout">
             <WordHeader toggle={toggle} collapsed={collapsed} />
 
-
-
             <Content
               className="site-layout-background"
               style={{
@@ -45,6 +44,7 @@ function WordLayout() {
               <Routes>
                 <Route path="/home" element={<Home />} />
                 <Route path="/podium" element={<Podium />} />
+                <Route  path="/profilePage/:id" element = {<Profile />} />
               </Routes>
 
             </Content>
