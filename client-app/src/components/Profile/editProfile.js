@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, useParams } from "react-router-dom";
 import {Row, Col, Typography, Input, Form, Button,Checkbox, 
-  Radio, Switch, Slider, Select, message} from 'antd';
+  Radio, Switch, Slider, Select, message, Tag} from 'antd';
 /*   import WordNotification from '../Notification/WordNotification';
   import WordService from '../../services/wordService' */
 import defaultIcon from "../../images/defaultIcon.PNG"
@@ -77,6 +77,14 @@ const Profile = ()  => {
         
     }
 
+    const onCheck = (e) => {
+        console.log(`checked = ${e.target.checked}`);
+    };
+
+    const onSave = (e) => {
+        console.log(`saved = ${e.target.checked}`);
+    }
+
     return (
         <WordLayout>
         <div>
@@ -101,13 +109,14 @@ const Profile = ()  => {
                     <p>Fields of expertise: {currentUser.powers}</p>
                     <p>Hobbies: {currentUser.hobbies}</p>
                     <p>Linkedin: <a href={currentUser.linkedin}>Click Here</a></p>
-                    <Row>
-                        <p>{currentUser.ready_to_help ? <text>is</text>: <text>isn't</text>}  Able to help others</p>
-                        <p><Button onClick={editProfile}>Edit</Button></p>
-                    </Row>
+                    <p>{currentUser.ready_to_help ? <text>is</text>: <text>isn't</text>}  Able to help others</p>
                     {/* <p>{false ? <text>is</text>: <text>isn't</text>} Able to help others</p> */}
                     <p>Onboarding process? {currentUser.onboarding}/50</p>
                     <p>How close are you to 50 stars? {currentUser.helpingPoints}/50</p>
+                    <Row>
+                        <p><Checkbox onChange={onCheck}>Able to help?</Checkbox></p>
+                        <p><Button onChange={onSave}>Save</Button></p>
+                    </Row>
                 </Col>
             </Row>
         </div>

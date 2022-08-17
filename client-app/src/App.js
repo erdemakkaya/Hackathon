@@ -10,6 +10,7 @@ import Login from './components/Login/Login';
 import Home from './components/Home/Home';
 import Podium from "./components/Podium/Podium";
 import Profile from "./components/Profile/profilePage";
+import EditProfile from "./components/Profile/editProfile";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/home" element={<Home />} />
           <Route path="/podium" element={<Podium />} />
           <Route path="/profilePage/:id" element={<Profile />} />
+          <Route path="/editProfile/:id" element={<EditProfile />} />
         </Routes>
       </Router>
     </React.StrictMode>
