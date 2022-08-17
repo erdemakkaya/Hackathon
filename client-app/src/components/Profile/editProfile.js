@@ -111,12 +111,12 @@ const Profile = ()  => {
                     <p>Linkedin: <a href={currentUser.linkedin}>Click Here</a></p>
                     <p>{currentUser.ready_to_help ? <text>is</text>: <text>isn't</text>}  Able to help others</p>
                     {/* <p>{false ? <text>is</text>: <text>isn't</text>} Able to help others</p> */}
-                    <p>Onboarding process? {currentUser.onboarding}/50</p>
-                    <p>How close are you to 50 stars? {currentUser.helpingPoints}/50</p>
                     <Row>
                         <p><Checkbox onChange={onCheck}>Able to help?</Checkbox></p>
                         <p><Button onChange={onSave}>Save</Button></p>
                     </Row>
+                    <p>Onboarding process? {currentUser.onboarding}/50</p>
+                    <p>How close are you to 50 stars? {currentUser.helpingPoints}/50</p>
                 </Col>
             </Row>
         </div>
