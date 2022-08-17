@@ -46,8 +46,8 @@ function WordSider({ collapsed }) {
           </Menu.Item>
           <Menu.Item key="6" icon={<UserOutlined />}>
             <Link to="/profilePage/0">
-            Profile
-          </Link>
+              Profile
+            </Link>
           </Menu.Item>
           <Menu.Item key="7"></Menu.Item>
           <Menu.Item key="8"></Menu.Item>
