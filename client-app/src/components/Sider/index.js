@@ -34,9 +34,9 @@ function WordSider({ collapsed }) {
               Search for help
             </Link>
           </Menu.Item>
-          <Menu.Item key="/calendar" icon={<CalendarOutlined />}>
-            <Link to="/calendar">
-              Create Grammer
+          <Menu.Item key="/meetings" icon={<CalendarOutlined />}>
+            <Link to="/meetings">
+              Meetings
             </Link>
           </Menu.Item>
           <Menu.Item key="/podium" icon={<SortAscendingOutlined />}>
