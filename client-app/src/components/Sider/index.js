@@ -20,8 +20,6 @@ const { Sider } = Layout;
 
 function WordSider({ collapsed }) {
   const location = useLocation();
-  const id = MyJson.loggedInUser
-  const profileExtension = `/profilePage/${id}`;
   return (
 
     <React.StrictMode>
@@ -48,7 +46,7 @@ function WordSider({ collapsed }) {
               Podium
             </Link>
           </Menu.Item>
-          <Menu.Item key="6" icon={<UserOutlined />}><Link to={profileExtension}>Profile</Link></Menu.Item>
+          <Menu.Item key="6" icon={<UserOutlined />}><Link to={"/profilePage"}>Profile</Link></Menu.Item>
           <Menu.Item key="7"></Menu.Item>
           <Menu.Item key="8"></Menu.Item>
           <Menu.Item key="9"></Menu.Item>

@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { useNavigate, useParams } from "react-router-dom";
 import {Row, Col, Typography, Input, Form, Button,Checkbox, 
   Radio, Switch, Slider, Select, message, Tag, Avatar} from 'antd';
-import { UserOutlined } from '@ant-design/icons';
+import {Link} from 'react-router-dom';
+import { UserOutlined, CheckOutlined, CloseCircleOutlined } from '@ant-design/icons';
 import MyJson from "../../db/db.json";
 import WordLayout from '../Layout';
 import EditProfile from './editProfile';
@@ -47,7 +48,7 @@ const Profile = ()  => {
     const loading = () => {};
     const navigate = () => {};
 
-    const { id } = useParams();
+    const id = MyJson.loggedInUser;
     var currentUser = defaultUser;
     const users = MyJson.members;
     const numUsers = users.length;
@@ -64,22 +65,6 @@ const Profile = ()  => {
     const hobby_colors = {}
     for (var i = 0; i < currentUser.hobbies.length; ++i)
         hobby_colors[currentUser.hobbies[i]] = colors[Math.trunc(Math.random() * 12)];
-
-    function editProfile() {
-        var uid = MyJson.loggedInUser;
-        var loggedInUserIndex = 0;
-        var loggedInUserId = 100;
-        
-        for (var i = 0; i < numUsers; ++i) {
-            var currentUid = users[i].uid;
-            if (currentUid == uid) {
-                loggedInUserIndex = i;
-                loggedInUserId = users[i].uid;
-            }
-        };
-        
-        return EditProfile;
-    }
 
     return (
         <WordLayout>
@@ -122,8 +107,8 @@ const Profile = ()  => {
                     </p>
                     <p>Linkedin: <a href={currentUser.linkedin}>Click Here</a></p>
                     <Row>
-                        <p>{currentUser.ready_to_help ? <text>is</text>: <text>isn't</text>}  Able to help others</p>
-                        <p><Button onClick={editProfile}>Edit</Button></p>
+                        <p>{currentUser.ready_to_help ? <CheckOutlined />: <CloseCircleOutlined />}  Able to help others</p>
+                        <p><Button><Link to={"/editProfile"}>Edit</Link></Button></p>
                     </Row>
                     {/* <p>{false ? <text>is</text>: <text>isn't</text>} Able to help others</p> */}
                     <p>Onboarding process? {currentUser.onboarding}/50</p>

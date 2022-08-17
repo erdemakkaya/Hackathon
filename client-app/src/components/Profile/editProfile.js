@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, Link } from "react-router-dom";
 import {Row, Col, Typography, Input, Form, Button,Checkbox, 
   Radio, Switch, Slider, Select, message, Tag, Divider, Avatar} from 'antd';
-import { UserOutlined } from '@ant-design/icons';
+import { UserOutlined, CheckCircleOutlined, CloseCircleOutlined } from '@ant-design/icons';
 import MyJson from "../../db/db.json";
 import WordLayout from '../Layout';
 
@@ -46,7 +46,7 @@ const Profile = ()  => {
     const loading = () => {};
     const navigate = () => {};
 
-    const { id } = useParams();
+    const id  = MyJson.loggedInUser;
     var currentUser = defaultUser;
     const users = MyJson.members;
     const numUsers = users.length;
@@ -65,13 +65,7 @@ const Profile = ()  => {
     for (var i = 0; i < currentUser.hobbies.length; ++i)
         hobby_colors[currentUser.hobbies[i]] = colors[Math.trunc(Math.random() * 12)];
 
-    const onCheck = (e) => {
-        console.log(`checked = ${e.target.checked}`);
-    };
-
-    const onSave = (e) => {
-        console.log(`saved = ${e.target.checked}`);
-    }
+    const onCheck = (e) => {};
 
     return (
         <WordLayout>
@@ -91,9 +85,9 @@ const Profile = ()  => {
             </Row>
             <Row>
                 <Col>
-                    <p className='attribute'>Bio: {currentUser.bio}</p>
-                    <p>Email: {currentUser.email}</p>
-                    <p>Phone: {currentUser.phone}</p>
+                    <p>Bio: <Input defaultValue={currentUser.bio} size="200"></Input></p>
+                    <p>Email: <Input defaultValue={currentUser.email}></Input></p>
+                    <p>Phone: <Input defaultValue={currentUser.email}></Input></p>
                     <p>Fields of expertise:
                         <Row>
                         {
@@ -112,12 +106,10 @@ const Profile = ()  => {
                         }
                         </Row>
                     </p>
-                    <p>Linkedin: <a href={currentUser.linkedin}>Click Here</a></p>
-                    <p>{currentUser.ready_to_help ? <text>is</text>: <text>isn't</text>}  Able to help others</p>
-                    {/* <p>{false ? <text>is</text>: <text>isn't</text>} Able to help others</p> */}
+                    <p>Linkedin: <Input defaultValue={currentUser.linkedin}></Input></p>
                     <Row>
-                        <p><Checkbox onChange={onCheck}>Able to help?</Checkbox></p>
-                        <p><Button onChange={onSave}>Save</Button></p>
+                        <p><Checkbox onChange={onCheck} defaultChecked={currentUser.ready_to_help}>Able to help?</Checkbox></p>
+                        <p><Button><Link to={"/profilePage"}>Save</Link></Button></p>
                     </Row>
                     <p>Onboarding process? {currentUser.onboarding}/50</p>
                     <p>How close are you to 50 stars? {currentUser.helpingPoints}/50</p>

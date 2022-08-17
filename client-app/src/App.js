@@ -25,8 +25,8 @@ function App() {
           <Route path="/home" element={<Home />} />
           <Route path="/search" element={<SearchHelp />} />
           <Route path="/podium" element={<Podium />} />
-          <Route path="/profilePage/:id" element={<Profile />} />
-          <Route path="/editProfile/:id" element={<EditProfile />} />
+          <Route path="/profilePage" element={<Profile />} />
+          <Route path="/editProfile" element={<EditProfile />} />
           <Route path="/meetings" element = {<Meetings />} />
         </Routes>
       </Router>
