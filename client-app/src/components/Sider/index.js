@@ -5,6 +5,7 @@ import {
     UserOutlined,
     VideoCameraOutlined,
     UploadOutlined,
+    HomeOutlined
   } from '@ant-design/icons';
   import {
     Link,
@@ -21,9 +22,9 @@ function WordSider({collapsed}) {
          <Sider trigger={null} collapsible collapsed={collapsed}>
          <div className="logo"/>
          <Menu theme="dark" mode="inline"  selectedKeys={[location.pathname]}>
-            <Menu.Item key="/create" icon={<UserOutlined />} >
-            <Link to="/create">
-            Create
+            <Menu.Item key="/home" icon={<HomeOutlined />} >
+            <Link to="/home">
+            Home
           </Link>
             </Menu.Item>
             <Menu.Item key="/list" icon={<VideoCameraOutlined />}>
