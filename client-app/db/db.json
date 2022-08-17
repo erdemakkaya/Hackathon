@@ -1,0 +1,67 @@
+{
+    "powers": [
+        "tia",
+        "test",
+        "firewall",
+        "ehs",
+        "iphone"
+    ],
+    "hobbies": [
+        "basketball",
+        "chess",
+        "guitar",
+        "swimming"
+    ],
+    "teams": [
+        "TITAN",
+        "Metacortex",
+        "Esfoobar",
+        "Freefolk",
+        "Eternia",
+        "Roadrunner"
+    ],
+    "members": [
+        {
+            "name": "Emre Kenar",
+            "email": "emre.kenar@siemens.com",
+            "project": "ADV D EU RT C&E PRC 1",
+            "powers": [
+                "tia",
+                "test",
+                "firewall"
+            ],
+            "team": "TITAN",
+            "linkedin": "https://tr.linkedin.com/in/emrekenar",
+            "password": "deneme",
+            "ready_to_help": true,
+            "bio": "Loves to code and test.",
+            "phone": "+905411111111",
+            "hobbies": [
+                "guitar",
+                "basketball"
+            ],
+            "ranking": 0
+        },
+        {
+            "name": "Aysenur Uslu",
+            "email": "aysenur.uslu@siemens.com",
+            "project": "ADV D EU RT C&E PRC 1",
+            "powers": [
+                "tia",
+                "hsp",
+                "development"
+            ],
+            "team": "TITAN",
+            "linkedin": "https://tr.linkedin.com/in/aysenuruslu",
+            "password": "deneme",
+            "ready_to_help": true,
+            "bio": "Loves to code and play chess.",
+            "phone": "+90542222222",
+            "hobbies": [
+                "chess",
+                "cooking"
+            ],
+            "ranking": 0
+        }
+    ]
+}
