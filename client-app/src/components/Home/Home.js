@@ -1,16 +1,18 @@
 import React, { useState } from 'react';
-import { useNavigate } from "react-router-dom";
-import {
-    Row, Col, Typography, Input, Form, Button, Checkbox,
-    Radio, Switch, Slider, Select, message
-} from 'antd';
+// import { useNavigate } from "react-router-dom";
+// import {
+//     Row, Col, Typography, Input, Form, Button, Checkbox,
+//     Radio, Switch, Slider, Select, message
+// } from 'antd';
 
 import "./styles.css";
+// import { Components } from 'antd/lib/date-picker/generatePicker';
 
 function Home() {
     // State with list of all checked item
     const [checked, setChecked] = useState([]);
-    const checkList = ["PKI Card Temini", "PKI Tanimlama", "EHS Egitimi", "Telefon talebi", "Laptop", "AZM Doldurma"];
+    const checkListSiemens = ["PKI Card Temini", "PKI Tanimlama", "EHS Egitimi", "Telefon talebi", "Laptop", "AZM Doldurma"];
+    const checkListProject = ["Development ortaminin kurulumu", "Takim arkadaslarinla tanisma", "Firewall talepleri"]
 
     // Add/Remove checked item from list
     const handleCheck = (event) => {
@@ -23,12 +25,7 @@ function Home() {
         setChecked(updatedList);
     };
 
-    // Generate string of checked items
-    const checkedItems = checked.length
-        ? checked.reduce((total, item) => {
-            return total + ", " + item;
-        })
-        : "";
+    const ranking = require("../../db.json").members[0].ranking;
 
     // Return classes based on whether item is checked
     var isChecked = (item) =>
@@ -54,20 +51,9 @@ function Home() {
                         <h2>12:45</h2>
                         <h2 class="id">ID: #3</h2>
                     </div>
-                    <h3>Headline</h3>
-                    <p class="ntfc-description">This is a notification. Hover over to expand.</p>
-                    <p class="ntfc-description">Fill in this part with details. See for additional information.</p>
-                </div>
-
-                <div class="ntfc-box ntfc-siemens">
-                    <div class="ntfc-info">
-                        <h2>17.08.2022</h2>
-                        <h2>13:00</h2>
-                        <h2 class="id">ID: #2</h2>
-                    </div>
-                    <h3 class="ntfc-headline">Headline</h3>
-                    <p class="ntfc-description">This is a notification. Hover over to expand.</p>
-                    <p class="ntfc-description">Fill in this part with details. See for additional information.</p>
+                    <h3>Congrats!</h3>
+                    <p class="ntfc-description">Great to see that Aysenur's help solved your problem.</p>
+                    <p class="ntfc-description">Do not forget to recognize your friends by acknowledging their help.</p>
                 </div>
 
                 <div class="ntfc-box">
@@ -84,7 +70,16 @@ function Home() {
             <div className="checkList">
                 <div className="title">Siemens On Boarding:</div>
                 <div className="list-container">
-                    {checkList.map((item, index) => (
+                    {checkListSiemens.map((item, index) => (
+                        <div key={index}>
+                            <input value={item} type="checkbox" onChange={handleCheck} />
+                            <span className={isChecked(item)}>{item}</span>
+                        </div>
+                    ))}
+                </div>
+                <div className="title">Project On Boarding:</div>
+                <div className="list-container">
+                    {checkListProject.map((item, index) => (
                         <div key={index}>
                             <input value={item} type="checkbox" onChange={handleCheck} />
                             <span className={isChecked(item)}>{item}</span>
@@ -93,11 +88,11 @@ function Home() {
                 </div>
                 <div>
                     <label for="file">Onboarding progress:</label>
-                    <progress class="progress" id="file" value={checked.length} max={checkList.length}> 32% </progress>
+                    <progress class="progress" id="file" value={checked.length} max={checkListSiemens.length + checkListProject.length}> 32% </progress>
                 </div>
                 <div>
-                    <label for="file">Onboarding progress:</label>
-                    <progress class="progress" id="file" value={checked.length} max={checkList.length}> 32% </progress>
+                    <label for="file">How close you are to 50 stars? </label>
+                    <progress class="progress" id="file" value={ranking} max="50"> 32% </progress>
                 </div>
             </div>
         </div>

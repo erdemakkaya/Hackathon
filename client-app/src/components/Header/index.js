@@ -3,10 +3,7 @@ import './index.less';
 import { Layout, Icon } from 'antd';
 import {
   MenuUnfoldOutlined,
-  MenuFoldOutlined,
-  UserOutlined,
-  VideoCameraOutlined,
-  UploadOutlined,
+  MenuFoldOutlined
 } from '@ant-design/icons';
 const { Header } = Layout;
 

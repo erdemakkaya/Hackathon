@@ -4,10 +4,7 @@ import { Layout } from "antd";
 import WordSider from "../Sider";
 import WordHeader from "../Header";
 import Home from "../Home/Home";
-import List from "../List/List";
-import WordCardFetch from "../WordCard/WordCardFetch";
-import GrammerCreate from "../../features/Grammer/GrammerCreate";
-import GrammerList from "../../features/Grammer/GrammerList";
+import Podium from "../Podium/Podium";
 
 import {
   BrowserRouter as Router,
@@ -19,49 +16,44 @@ import {
 
 const { Content, Footer } = Layout;
 function WordLayout() {
-    const [collapsed, setCollapsed] = useState(true);
+  const [collapsed, setCollapsed] = useState(true);
 
-    const toggle = () => {
-        setCollapsed((prevCollapsed)=>{
-            return !prevCollapsed;
-        });
-      };
+  const toggle = () => {
+    setCollapsed((prevCollapsed) => {
+      return !prevCollapsed;
+    });
+  };
   return (
     <>
       <Router>
-      <Layout style={{ minHeight: "100vh" }}>
+        <Layout style={{ minHeight: "100vh" }}>
 
-          <WordSider collapsed={collapsed}/>
+          <WordSider collapsed={collapsed} />
           <Layout className="site-layout">
-            <WordHeader toggle={toggle} collapsed={collapsed}/>
+            <WordHeader toggle={toggle} collapsed={collapsed} />
 
-        
+
 
             <Content
-            className="site-layout-background"
-            style={{
-              margin: '24px 16px',
-              padding: 24,
-              minHeight: 280,
-            }}
-          >
-           <Routes>
-           <Route  path="/home" element = {<Home />} />
-           <Route  path="/list" element = {<List />} />
-           <Route  path="/test" element = {<WordCardFetch />} />
-           <Route  path="/creategrammer/:id" element = {<GrammerCreate />} />
-           <Route  path="/listgrammer" element = {<GrammerList />} />
-                         
+              className="site-layout-background"
+              style={{
+                margin: '24px 16px',
+                padding: 24,
+                minHeight: 280,
+              }}
+            >
+              <Routes>
+                <Route path="/home" element={<Home />} />
+                <Route path="/podium" element={<Podium />} />
+              </Routes>
 
-                      </Routes>  
-
-          </Content>
-          <Footer style={{ textAlign: "center" }}>
-            Word ©2022
-          </Footer>
+            </Content>
+            <Footer style={{ textAlign: "center" }}>
+              Siemens ©2022
+            </Footer>
           </Layout>
-      </Layout>
-      </Router>  
+        </Layout>
+      </Router>
     </>
   );
 }
