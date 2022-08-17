@@ -31,17 +31,12 @@ function WordSider({ collapsed }) {
           </Menu.Item>
           <Menu.Item key="/search" icon={<SearchOutlined />}>
             <Link to="/search">
-              Test
+              Search for help
             </Link>
           </Menu.Item>
           <Menu.Item key="/calendar" icon={<CalendarOutlined />}>
             <Link to="/calendar">
               Create Grammer
-            </Link>
-          </Menu.Item>
-          <Menu.Item key="/listgrammer" icon={<UserOutlined />}>
-            <Link to="/listgrammer">
-              List  Grammer
             </Link>
           </Menu.Item>
           <Menu.Item key="/podium" icon={<SortAscendingOutlined />}>
@@ -53,6 +48,7 @@ function WordSider({ collapsed }) {
             <Link to="/profilePage/0">
             Profile
           </Link>
+          </Menu.Item>
           <Menu.Item key="7"></Menu.Item>
           <Menu.Item key="8"></Menu.Item>
           <Menu.Item key="9"></Menu.Item>
