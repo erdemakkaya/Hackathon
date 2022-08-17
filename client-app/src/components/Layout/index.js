@@ -52,7 +52,7 @@ function WordLayout() {
            <Route  path="/test" element = {<WordCardFetch />} />
            <Route  path="/creategrammer/:id" element = {<GrammerCreate />} />
            <Route  path="/listgrammer" element = {<GrammerList />} />
-           <Route  path="/profilePage" element = {<Profile />} />
+           <Route  path="/profilePage/:id" element = {<Profile />} />
 
                       </Routes>  
 

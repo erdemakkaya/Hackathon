@@ -1,10 +1,30 @@
 import React, { useState } from 'react';
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import {Row, Col, Typography, Input, Form, Button,Checkbox, 
   Radio, Switch, Slider, Select, message} from 'antd';
 /*   import WordNotification from '../Notification/WordNotification';
   import WordService from '../../services/wordService' */
 import logo from "../../images/defaultIcon.PNG"
+import MyJson from "../../db/db.json";
+
+var defaultUser = {
+    uid: "0",
+    name: "name",
+    email: "name.surname@siemens.com",
+    project: "ADV D EU RT C&E PRC 1",
+    powers: ["test", "test2"],
+    hobbies: ["test"],
+    team: "team",
+    linkedin: "https://google.com",
+    password: "deneme",
+    ready_to_help: true,
+    bio: "Loves to code and test.",
+    phone: "+905411111111",
+    hobbies: ["test11", "test22"],
+    ranking: 0,
+    onboarding: 0,
+    helpingPoints: 0
+};
 
 const formItemLayout = {
   labelCol: {
@@ -26,6 +46,17 @@ const Profile = ()  => {
     const loading = () => {};
     const navigate = () => {};
 
+    const { id } = useParams();
+    var currentUser = defaultUser;
+    const users = MyJson.members;
+    const numUsers = users.length;
+
+    for (var i = 0; i < numUsers; ++i) {
+        var user = users[i];
+        if (user.uid == id)
+            currentUser = user;
+    };
+
     return (
         <div>
             <Row gutter={[40, 0]}>
@@ -35,10 +66,30 @@ const Profile = ()  => {
             </Row>
             <Row gutter={[40, 0]}>
                 <Col span={18}>
-                <img src={logo} width="50" height="50"></img>
-                <p>Emre Kenar</p>
-                
-        <Form
+                    <img src={logo} width="50" height="50"></img>
+                    <p>{currentUser.name}</p>
+                    <p>{currentUser.team}</p>
+                    <p>{currentUser.project}</p>
+                    <p>Bio: {currentUser.bio}</p>
+                    <p>Email: {currentUser.email}</p>
+                    <p>Phone: {currentUser.phone}</p>
+                    <p>Fields of expertise: {currentUser.powers}</p>
+                    <p>Hobbies: {currentUser.hobbies}</p>
+                    <p>Linkedin: <a href={currentUser.linkedin}>Click Here</a></p>
+                    <p>{currentUser.ready_to_help ? <text>is</text>: <text>isn't</text>} Able to help others</p>
+                    {/* <p>{false ? <text>is</text>: <text>isn't</text>} Able to help others</p> */}
+                    <p>Onboarding process? {currentUser.onboarding}/50</p>
+                    <p>How close are you to 50 stars? {currentUser.helpingPoints}/50</p>
+                </Col>
+            </Row>
+        
+        </div>
+    ); 
+};
+
+export default Profile;
+
+/*{         <Form
         {...formItemLayout}
         name="basic"
     
@@ -132,13 +183,9 @@ const Profile = ()  => {
                 </Button>
                 </div>
         </Form.Item>
-        </Form>
-        </Col>
-            </Row>
-        </div>
-    );
+        </Form>}
   
-/*     const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(false);
     const navigate = useNavigate()
     
   const onFinish = async (values) => {
@@ -155,7 +202,3 @@ const Profile = ()  => {
   /*   const onFinishFailed = (errorInfo) => {
     WordNotification.ErrorNotification('you encountered an error');
   }; */
-
-};
-
-export default Profile;
