@@ -5,6 +5,7 @@ import {
     UserOutlined,
     VideoCameraOutlined,
     UploadOutlined,
+    CalendarTwoTone ,
   } from '@ant-design/icons';
   import {
     Link,
@@ -24,6 +25,11 @@ function WordSider({collapsed}) {
             <Menu.Item key="/create" icon={<UserOutlined />} >
             <Link to="/create">
             Create
+          </Link>
+            </Menu.Item>
+            <Menu.Item key="/meetings" icon={<CalendarTwoTone/>} >
+            <Link to="/meetings">
+            Meetings
           </Link>
             </Menu.Item>
             <Menu.Item key="/list" icon={<VideoCameraOutlined />}>

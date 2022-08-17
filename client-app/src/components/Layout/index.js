@@ -5,6 +5,7 @@ import WordSider from "../Sider";
 import WordHeader from "../Header";
 import Create from "../Create/Create";
 import List from "../List/List";
+import Meetings from "../Meetings/Meetings";
 import WordCardFetch from "../WordCard/WordCardFetch";
 import GrammerCreate from "../../features/Grammer/GrammerCreate";
 import GrammerList from "../../features/Grammer/GrammerList";
@@ -51,7 +52,7 @@ function WordLayout() {
            <Route  path="/test" element = {<WordCardFetch />} />
            <Route  path="/creategrammer/:id" element = {<GrammerCreate />} />
            <Route  path="/listgrammer" element = {<GrammerList />} />
-                         
+           <Route  path="/meetings" element = {<Meetings />} />              
 
                       </Routes>  
 
