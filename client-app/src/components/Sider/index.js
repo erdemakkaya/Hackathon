@@ -60,7 +60,7 @@ function WordSider({ collapsed }) {
           <Menu.Item key="15"></Menu.Item>
           <Menu.Item key="16"></Menu.Item>
           <Menu.Item key="/logout" icon={<LogoutOutlined />}>
-            <Link to="/logout">
+            <Link to="/login">
               Logout
             </Link>
           </Menu.Item>
