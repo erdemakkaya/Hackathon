@@ -1,21 +1,12 @@
 import React, { useState } from 'react';
 import WordLayout from "../Layout"
-// import { useNavigate } from "react-router-dom";
-// import {
-//     Row, Col, Typography, Input, Form, Button, Checkbox,
-//     Radio, Switch, Slider, Select, message
-// } from 'antd';
-
 import "./styles.css";
-// import { Components } from 'antd/lib/date-picker/generatePicker';
 
 function Home() {
-    // State with list of all checked item
     const [checked, setChecked] = useState([]);
     const checkListSiemens = ["PKI Card Temini", "PKI Tanimlama", "EHS Egitimi", "Telefon talebi", "Laptop", "AZM Doldurma"];
     const checkListProject = ["Development ortaminin kurulumu", "Takim arkadaslarinla tanisma", "Firewall talepleri"]
 
-    // Add/Remove checked item from list
     const handleCheck = (event) => {
         var updatedList = [...checked];
         if (event.target.checked) {
@@ -28,7 +19,6 @@ function Home() {
 
     const ranking = require("../../db.json").members[0].ranking;
 
-    // Return classes based on whether item is checked
     var isChecked = (item) =>
         checked.includes(item) ? "checked-item" : "not-checked-item";
 
