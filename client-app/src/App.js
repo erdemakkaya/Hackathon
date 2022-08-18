@@ -10,6 +10,7 @@ import Login from './components/Login/Login';
 import Home from './components/Home/Home';
 import Podium from "./components/Podium/Podium";
 import Profile from "./components/Profile/profilePage";
+import EditProfile from "./components/Profile/editProfile";
 import Meetings from "./components/Meetings/Meetings";
 import SearchHelp from "./components/Search/Search";
 
@@ -24,7 +25,8 @@ function App() {
           <Route path="/home" element={<Home />} />
           <Route path="/search" element={<SearchHelp />} />
           <Route path="/podium" element={<Podium />} />
-          <Route path="/profilePage/:id" element={<Profile />} />
+          <Route path="/profilePage" element={<Profile />} />
+          <Route path="/editProfile" element={<EditProfile />} />
           <Route path="/meetings" element = {<Meetings />} />
           <Route path="/logout" element={<Login />} />
         </Routes>

@@ -14,6 +14,8 @@ import {
   useLocation
 
 } from 'react-router-dom';
+import MyJson from "../../db/db.json"
+
 const { Sider } = Layout;
 
 function WordSider({ collapsed }) {
@@ -44,11 +46,7 @@ function WordSider({ collapsed }) {
               Podium
             </Link>
           </Menu.Item>
-          <Menu.Item key="6" icon={<UserOutlined />}>
-            <Link to="/profilePage/0">
-              Profile
-            </Link>
-          </Menu.Item>
+          <Menu.Item key="6" icon={<UserOutlined />}><Link to={"/profilePage"}>Profile</Link></Menu.Item>
           <Menu.Item key="7"></Menu.Item>
           <Menu.Item key="8"></Menu.Item>
           <Menu.Item key="9"></Menu.Item>
