@@ -1,6 +1,6 @@
 import React from "react";
 import './index.less';
-import { Layout, Icon } from 'antd';
+import { Layout } from 'antd';
 import {
   MenuUnfoldOutlined,
   MenuFoldOutlined
