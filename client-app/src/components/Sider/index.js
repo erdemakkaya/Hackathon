@@ -7,13 +7,15 @@ import {
   SearchOutlined,
   CalendarOutlined,
   LogoutOutlined,
-  SortAscendingOutlined
+  StarOutlined
 } from '@ant-design/icons';
 import {
   Link,
   useLocation
 
 } from 'react-router-dom';
+import MyJson from "../../db/db.json"
+
 const { Sider } = Layout;
 
 function WordSider({ collapsed }) {
@@ -39,16 +41,12 @@ function WordSider({ collapsed }) {
               Meetings
             </Link>
           </Menu.Item>
-          <Menu.Item key="/podium" icon={<SortAscendingOutlined />}>
+          <Menu.Item key="/podium" icon={<StarOutlined />}>
             <Link to="/podium">
               Podium
             </Link>
           </Menu.Item>
-          <Menu.Item key="6" icon={<UserOutlined />}>
-            <Link to="/profilePage/0">
-              Profile
-            </Link>
-          </Menu.Item>
+          <Menu.Item key="6" icon={<UserOutlined />}><Link to={"/profilePage"}>Profile</Link></Menu.Item>
           <Menu.Item key="7"></Menu.Item>
           <Menu.Item key="8"></Menu.Item>
           <Menu.Item key="9"></Menu.Item>
@@ -59,8 +57,9 @@ function WordSider({ collapsed }) {
           <Menu.Item key="14"></Menu.Item>
           <Menu.Item key="15"></Menu.Item>
           <Menu.Item key="16"></Menu.Item>
+          <Menu.Item key="17"></Menu.Item>
           <Menu.Item key="/logout" icon={<LogoutOutlined />}>
-            <Link to="/logout">
+            <Link to="/login">
               Logout
             </Link>
           </Menu.Item>
