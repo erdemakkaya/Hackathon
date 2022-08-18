@@ -140,7 +140,7 @@ const Meetings = () => {
               type="primary"
               htmlType="submit"
               icon={<SiGooglemeet />}
-              onClick={()=>goToTeamsLink(record.address)}
+              onClick={()=> goToTeamsLink(record.address)}
             >
               Teams
             </Button>
@@ -247,7 +247,7 @@ const Meetings = () => {
       <div>
         <Drawer
           title="Schedule a meeting"
-          placement="top"
+          placement="left"
           visible={isScheduleShown}
           onClose={onCloseSchedule}
         >
@@ -258,6 +258,18 @@ const Meetings = () => {
             onFinishFailed={onFinishFailed}
             autoComplete="off"
           >
+            <div style={{ textAlign: "center" }}>
+              <a>Choose the meeting type:</a>
+                <Cascader
+                  style={{
+                    width: "100%",
+                  }}
+                  options={options}
+                  multiple
+                  maxTagCount="responsive"
+                />
+              </div>
+            <span>&nbsp;&nbsp;</span>
             <span>&nbsp;&nbsp;</span>
 
             <Form.Item label="Meeting Reoccurrance">
